@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 # Build your Next.js app
-# RUN yarn build
+RUN apt-get update && apt-get install xdg-utils
 
 # Expose and start the server
 EXPOSE 3000
