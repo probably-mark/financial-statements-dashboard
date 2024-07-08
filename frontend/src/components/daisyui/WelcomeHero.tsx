@@ -10,9 +10,9 @@ function WelcomeHero() {
             style={{ backgroundImage: `url('/Seoul-nightscape.png')` }}
         >
             <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-blue-100 text-center">
-                <div className="w-3/4 bg-gray-200 bg-opacity-25 p-8 rounded-xl">
-                    <h1 className="mb-5 text-5xl font-bold">I appreciate you checking this page out!</h1>
+            <div className="hero-content text-yellow-100 text-center">
+                <div className="w-3/4 bg-cyan-700 bg-opacity-25 p-8 rounded-xl">
+                    <h1 className="mb-5 text-5xl font-bold">Thanks for checking this page out!</h1>
                     <p className="mb-2">
                         This is a full-stack project built by me (Mark McAvoy). 
                         The goal of this project is to make a dashboard that visualizes financial statements 
@@ -22,8 +22,8 @@ function WelcomeHero() {
                     </p>
                     <p className="mb-2">Here is the full tech stack:</p>
                     <ul>
-                      <li><span class={bold_grey}>React / Next.js</span>:  For the front-end application</li>
-                      <li><span class={bold_grey}>Plotly.js</span>: For the plots in the dashboard</li>
+                      <li><span class={bold_grey}>TypeScript / React</span>:  For the front-end application</li>
+                      <li><span class={bold_grey}>ApexCharts</span>: For the plots in the dashboard</li>
                       <li><span class={bold_grey}>Java / SpringBoot</span>: For the backend APIs</li>
                       <li><span class={bold_grey}>PostgreSQL</span>: For the database</li>
                     </ul>

@@ -61,7 +61,7 @@ const LeftMenuItem = ({
                     <div className="flex items-center gap-2">
                         {icon && <Icon icon={icon} fontSize={18} />}
                         {label}
-                        <ProBadge url={url} />
+                        {/* <ProBadge url={url} /> */}
                     </div>
                 </Link>
             </MenuItem>
@@ -136,7 +136,7 @@ const Leftbar = ({ hide, menuItems }: { hide?: boolean; menuItems: IMenuItem[] }
                 </div>
             </div>
 
-            <Modal ref={purchaseModal}>
+            {/* <Modal ref={purchaseModal}>
                 <ModalHeader className="font-medium">Upgrade</ModalHeader>
                 <ModalBody>
                     Need All Features and Pages? You need to buy standard or pro to access full version
@@ -149,7 +149,7 @@ const Leftbar = ({ hide, menuItems }: { hide?: boolean; menuItems: IMenuItem[] }
                         <Button color="primary">Purchase Now</Button>
                     </Link>
                 </ModalActions>
-            </Modal>
+            </Modal> */}
         </div>
     );
 };

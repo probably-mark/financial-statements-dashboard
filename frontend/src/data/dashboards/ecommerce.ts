@@ -71,7 +71,7 @@ export const getEcommerceDashboardRevenueStatData: Record<
             return {
                 date: DateUtil.minusDays(10 - index),
                 orders: o,
-                revenues: fRevenues[index] * (Math.random() + 0.5),
+                revenues: fRevenues[index],
             };
         }),
     },

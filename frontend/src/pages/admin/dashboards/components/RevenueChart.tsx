@@ -20,7 +20,7 @@ const getOption = (duration: IEcommerceDashboardRevenueDuration = "day", theme: 
         chart: {
             height: 380,
             type: "bar",
-            stacked: true,
+            // stacked: true,
             // parentHeightOffset: 0,
             background: "transparent",
 
