@@ -24,7 +24,7 @@ function WelcomeHero() {
                     <ul>
                       <li><span class={bold_grey}>TypeScript / React</span>:  For the front-end application</li>
                       <li><span class={bold_grey}>ApexCharts</span>: For the plots in the dashboard</li>
-                      <li><span class={bold_grey}>Java / SpringBoot</span>: For the backend APIs</li>
+                      <li><span class={bold_grey}>Java / J2EE</span>: For the backend APIs</li>
                       <li><span class={bold_grey}>PostgreSQL</span>: For the database</li>
                     </ul>
                     <Link to="/dashboard" className="btn btn-primary mt-4">Onto the Financial Statements Dashboard</Link>

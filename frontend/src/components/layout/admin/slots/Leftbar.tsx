@@ -108,9 +108,10 @@ const Leftbar = ({ hide, menuItems }: { hide?: boolean; menuItems: IMenuItem[] }
             className={cn("leftmenu-wrapper", {
                 hide: hide,
             })}>
-            <div className="flex h-16 items-center justify-center">
+            {/* <div className="flex h-16 items-center justify-center">
                 <Logo />
-            </div>
+            </div> */}
+            <div className="h-8"></div>
             <SimpleBar className="h-[calc(100vh-64px)] lg:h-[calc(100vh-230px)] ">
                 <Menu className="mb-6">
                     {menuItems.map((item, index) => (
@@ -124,7 +125,7 @@ const Leftbar = ({ hide, menuItems }: { hide?: boolean; menuItems: IMenuItem[] }
                 </Menu>
             </SimpleBar>
 
-            <div className={"mx-4 hidden rounded bg-base-200 px-3 py-4 lg:block"}>
+            {/* <div className={"mx-4 hidden rounded bg-base-200 px-3 py-4 lg:block"}>
                 <p className="text-center text-base font-medium">Need Premium?</p>
                 <p className="mt-3 text-center text-sm">Access all features with single time purchase</p>
                 <div className="mt-3 text-center">
@@ -134,7 +135,7 @@ const Leftbar = ({ hide, menuItems }: { hide?: boolean; menuItems: IMenuItem[] }
                         </Button>
                     </Link>
                 </div>
-            </div>
+            </div> */}
 
             {/* <Modal ref={purchaseModal}>
                 <ModalHeader className="font-medium">Upgrade</ModalHeader>

@@ -18,24 +18,27 @@ const EcommerceDashboardPage = () => {
                     <CounterWidget />
                 </div>
                 <div className="mt-6 grid gap-6 xl:grid-cols-12">
-                    <div className="xl:col-span-7">
+                    <div className="xl:col-span-6">
                         <RevenueChart />
                     </div>
-                    <div className="xl:col-span-5">
-                        <VisitorChart />
+                    <div className="sm:block lg:col-span-6">
+                        <RecentOrder />
                     </div>
+                    {/* <div className="xl:col-span-5">
+                        <VisitorChart />
+                    </div> */}
                 </div>
                 <div className="mt-6 grid gap-6 lg:grid-cols-5 2xl:grid-cols-12">
                     {/*TODO: Hide recent order in small screen due to responsive issue*/}
-                    <div className="hidden sm:block lg:col-span-3 2xl:col-span-5">
+                    {/* <div className="sm:block lg:col-span-3 2xl:col-span-12">
                         <RecentOrder />
-                    </div>
-                    <div className="lg:order-3 lg:col-span-3 2xl:col-span-4">
+                    </div> */}
+                    {/* <div className="lg:order-3 lg:col-span-3 2xl:col-span-4">
                         <TopCountryChart />
-                    </div>
-                    <div className="lg:order-2 lg:col-span-2 2xl:col-span-3">
+                    </div> */}
+                    {/* <div className="lg:order-2 lg:col-span-2 2xl:col-span-3">
                         <QuickChat />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

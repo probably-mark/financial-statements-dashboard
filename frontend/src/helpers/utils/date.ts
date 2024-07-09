@@ -48,6 +48,16 @@ const addMonths = (month: number = 1, date: Date = new Date()): Date => {
     return d;
 };
 
+const minusQuarters = (month: number = 4, date: Date = new Date()): Date => {
+    return addQuarters(-month, date);
+};
+
+const addQuarters = (month: number = 4, date: Date = new Date()): Date => {
+    const d = date;
+    d.setMonth(date.getMonth() + month);
+    return d;
+};
+
 const minusYears = (year: number = 1, date: Date = new Date()): Date => {
     return addYears(-year, date);
 };

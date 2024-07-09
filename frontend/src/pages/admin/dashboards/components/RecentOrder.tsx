@@ -21,20 +21,20 @@ const OrderRow = ({ order, checkedAll }: { order: IEcommerceDashboardOrder; chec
 
     return (
         <TableRow className="cursor-pointer" onClick={() => setChecked(!checked)}>
-            <Checkbox size={"xs"} checked={checked} onChange={() => setChecked(!checked)} />
-            <div className="flex items-center space-x-3 truncate">
-                <img
+            {/* <Checkbox size={"xs"} checked={checked} onChange={() => setChecked(!checked)} /> */}
+            <div className="flex items-center space-x-3">
+                {/* <img
                     src={order.image}
                     alt={"order image"}
                     className={cn("size-8 bg-base-content/10", Mask.className({ variant: "squircle" }))}
-                />
+                /> */}
                 <p className="line-clamp-2 font-medium">{order.name}</p>
             </div>
             {/*<div className="font-medium">{order.category}</div>*/}
             <div>
                 <div className="font-medium">${order.amount}</div>
             </div>
-            <div className="text-nowrap text-xs">{DateUtil.formatted(order.date)}</div>
+            {/* <div className="text-nowrap text-xs">{DateUtil.formatted(order.date)}</div>
             <div>
                 <StatusWidget status={order.status} />
             </div>
@@ -45,7 +45,7 @@ const OrderRow = ({ order, checkedAll }: { order: IEcommerceDashboardOrder; chec
                 <Button color="ghost" className="text-error/70 hover:bg-error/20" size="sm" shape={"square"}>
                     <Icon icon={trashIcon} fontSize={20} />
                 </Button>
-            </div>
+            </div> */}
         </TableRow>
     );
 };
@@ -85,7 +85,7 @@ const RecentOrder = () => {
     return (
         <Card className="bg-base-100">
             <CardBody>
-                <div className="flex items-center justify-between">
+                {/* <div className="flex items-center justify-between">
                     <span className="font-medium">Recent Orders</span>
                     <Button
                         startIcon={<Icon icon={downloadIcon} fontSize={16} />}
@@ -94,16 +94,16 @@ const RecentOrder = () => {
                         size={"sm"}>
                         Report
                     </Button>
-                </div>
+                </div> */}
                 <div className="overflow-auto">
                     <Table className="rounded-box">
                         <TableHead>
-                            <Checkbox size={"xs"} checked={checkedAll} onChange={() => setCheckedAll(!checkedAll)} />
-                            <span className="text-sm font-medium text-base-content/80">Product</span>
-                            <span className="text-sm font-medium text-base-content/80">Price</span>
-                            <span className="text-sm font-medium text-base-content/80">Date</span>
-                            <span className="text-sm font-medium text-base-content/80">Status</span>
-                            <span className="text-sm font-medium text-base-content/80">Action</span>
+                            {/* <Checkbox size={"xs"} checked={checkedAll} onChange={() => setCheckedAll(!checkedAll)} /> */}
+                            {/* <span className="text-sm font-medium text-base-content/80">Product</span> */}
+                            {/* <span className="text-sm font-medium text-base-content/80">Price</span> */}
+                            {/* <span className="text-sm font-medium text-base-content/80">Date</span> */}
+                            {/* <span className="text-sm font-medium text-base-content/80">Status</span> */}
+                            {/* <span className="text-sm font-medium text-base-content/80">Action</span> */}
                         </TableHead>
 
                         <TableBody>

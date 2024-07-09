@@ -54,13 +54,17 @@ const getOption = (duration: IEcommerceDashboardRevenueDuration = "day", theme: 
         },
         series: [
             {
-                name: "Orders",
-                data: data.map((r) => r.orders),
-            },
-            {
                 name: "Revenue",
                 data: data.map((r) => r.revenues),
             },
+            {
+                name: "Expenses",
+                data: data.map((r) => r.expenses),
+            }
+            // {
+            //     name: "Net Income",
+            //     data: data.map((r) => r.netIncome),
+            // },
         ],
         xaxis: {
             categories: data.map((r) => r.date),
@@ -73,7 +77,7 @@ const getOption = (duration: IEcommerceDashboardRevenueDuration = "day", theme: 
             labels: {
                 formatter: (val) => {
                     return DateUtil.formatted(new Date(val), {
-                        format: duration == "day" ? "DD MMM" : duration == "month" ? "MMM YY" : "YYYY",
+                        format: duration == "quarter" ? "MMM YY" : duration == "month" ? "MMM YY" : "YYYY",
                     });
                 },
             },
@@ -130,11 +134,11 @@ const RevenueChart = () => {
                     <div className="flex items-center justify-between">
                         <span className="font-medium">Revenue Statistics</span>
                         <Tabs variant="boxed" size={"sm"}>
-                            <Tab onClick={() => setOverviewDuration("day")} active={overviewDuration == "day"}>
-                                Day
-                            </Tab>
                             <Tab onClick={() => setOverviewDuration("month")} active={overviewDuration == "month"}>
                                 Month
+                            </Tab>
+                            <Tab onClick={() => setOverviewDuration("quarter")} active={overviewDuration == "quarter"}>
+                                Quarter
                             </Tab>
                             <Tab onClick={() => setOverviewDuration("year")} active={overviewDuration == "year"}>
                                 Year

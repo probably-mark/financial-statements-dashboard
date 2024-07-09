@@ -22,8 +22,10 @@ import {
     IEcommerceDashboardUserInteraction,
 } from "@/types/dashboards/ecommerce";
 
-const fOrders = [10, 12, 14, 16, 18, 20, 14, 16, 18, 12];
 const fRevenues = [15, 24, 21, 28, 30, 40, 22, 32, 34, 20];
+const fExpenses = [10, 12, 14, 16, 18, 20, 14, 16, 18, 12];
+// const fNetIncome = fRevenues - fExpenses;
+
 
 export const getEcommerceDashboardCounterData: IEcommerceDashboardCounter[] = [
     {
@@ -64,36 +66,39 @@ export const getEcommerceDashboardRevenueStatData: Record<
     IEcommerceDashboardRevenueDuration,
     IEcommerceDashboardRevenueStat
 > = {
-    day: {
-        amount: 541,
-        percent: 2.14,
-        series: fOrders.map((o, index) => {
+    year: {
+        amount: fRevenues.reduce((a,c) => a+c, 0)*12,
+        percent: 3.24,
+        series: fExpenses.map((exp, index) => {
             return {
-                date: DateUtil.minusDays(10 - index),
-                orders: o,
+                date: DateUtil.minusYears(10 - index),
+                expenses: exp*12,
+                revenues: fRevenues[index]*12,
+                // netIncome: fNetIncome[index],
+            };
+        }),
+    },
+    quarter: {
+        amount: fRevenues.reduce((a,c) => a+c, 0)*3,
+        percent: 2.14,
+        series: fExpenses.map((exp, index) => {
+            return {
+                date: DateUtil.minusMonths(10 - index*4),
+                expenses: exp*3,
                 revenues: fRevenues[index],
+                // netIncome: fNetIncome[index],
             };
         }),
     },
     month: {
-        amount: 1241,
+        amount: fRevenues.reduce((a,c) => a+c, 0),
         percent: 4.59,
-        series: fOrders.map((o, index) => {
+        series: fExpenses.map((exp, index) => {
             return {
                 date: DateUtil.minusMonths(10 - index),
-                orders: o * 30,
-                revenues: fRevenues[index] * (Math.random() * 10 + 10),
-            };
-        }),
-    },
-    year: {
-        amount: 12547,
-        percent: 3.24,
-        series: fOrders.map((o, index) => {
-            return {
-                date: DateUtil.minusYears(10 - index),
-                orders: o * 365,
-                revenues: fRevenues[index] * (Math.random() * 100 + 60),
+                expenses: exp - 2*[2, 2, -1, 3, 2, -1, -2, 4, 3, -5][index],
+                revenues: fRevenues[index] - 2*[1, 2, 4, -3, 5, -2, 2, -1, 3, 2][index],
+                // netIncome: fNetIncome[index],
             };
         }),
     },
@@ -128,39 +133,38 @@ export const getEcommerceDashboardMessageData: IEcommerceDashboardMessage[] = [
 
 export const getEcommerceDashboardOrderData: IEcommerceDashboardOrder[] = [
     {
-        amount: 99,
+        amount: fRevenues.reduce((a,c) => a+c, 0)*12,
         status: "delivered",
-        name: "Men's tracking shoes",
+        name: "Revenue",
         image: product1Img,
         date: DateUtil.minusDays(1),
         category: "Fashion",
     },
     {
-        amount: 99,
+        amount: fExpenses.reduce((a,c) => a+c, 0)*12,
         status: "on_going",
-
-        name: "Cocooil body oil",
+        name: "Expenses",
         image: product2Img,
         date: DateUtil.minusDays(4),
         category: "Daily Need",
     },
-    {
-        amount: 99,
-        status: "delivered",
-        name: "Freeze air ",
-        image: product3Img,
-        date: DateUtil.minusDays(9),
-        category: "Cosmetic",
-    },
-    {
-        amount: 99,
-        status: "cancelled",
+    // {
+    //     amount: 99,
+    //     status: "delivered",
+    //     name: "Freeze air ",
+    //     image: product3Img,
+    //     date: DateUtil.minusDays(9),
+    //     category: "Cosmetic",
+    // },
+    // {
+    //     amount: 99,
+    //     status: "cancelled",
 
-        name: "Ladies's shoes",
-        image: product4Img,
-        date: DateUtil.minusDays(3),
-        category: "Fashion",
-    },
+    //     name: "Ladies's shoes",
+    //     image: product4Img,
+    //     date: DateUtil.minusDays(3),
+    //     category: "Fashion",
+    // },
 ];
 
 export const getEcommerceDashboardUserInteractionData: IEcommerceDashboardUserInteraction[] = [
