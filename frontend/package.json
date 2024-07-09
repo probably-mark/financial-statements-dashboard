@@ -1,5 +1,6 @@
 {
-  "name": "daisyui-react-admin",
+  "name": "financial-statements-dashboard",
+  "author": "Mark McAvoy",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -8,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "latest": "yarn upgrade-interactive --latest"
