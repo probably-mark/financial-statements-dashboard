@@ -44,12 +44,12 @@ const Topbar = () => {
             <NavbarCenter></NavbarCenter>
             <NavbarEnd className="gap-1.5">
                 <ThemeToggleButton shape="circle" color="ghost" size="sm" />
-                <NotificationButton />
+                {/* <NotificationButton /> */}
                 <Dropdown vertical="bottom" end>
                     <DropdownToggle
                         className="btn btn-ghost rounded-btn px-1.5 hover:bg-base-content/20"
                         button={false}>
-                        <div className="flex items-center gap-2">
+                        {/* <div className="flex items-center gap-2">
                             <Avatar
                                 src={avatar1}
                                 size={30}
@@ -58,7 +58,7 @@ const Topbar = () => {
                                 <p className="text-sm/none">Denish</p>
                                 <p className="mt-1 text-xs/none text-primary">Edit</p>
                             </div>
-                        </div>
+                        </div> */}
                     </DropdownToggle>
                     <DropdownMenu className="mt-4 w-52">
                         <DropdownItem>
