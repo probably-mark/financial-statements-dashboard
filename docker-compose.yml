@@ -10,7 +10,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - backend
+      - spark-app
     environment:
       - NEXT_PUBLIC_BACKEND_URL=http://backend:8080
     volumes:
@@ -19,34 +19,76 @@ services:
     tty: true
     restart: on-failure
 
-  backend:
-    container_name: java_app
-    hostname: java_app
+  # backend:
+  #   container_name: java_app
+  #   hostname: java_app
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+  #     - SPRING_DATASOURCE_USERNAME=postgres
+  #     - SPRING_DATASOURCE_PASSWORD=postgres
+  #   volumes:
+  #     - ./backend:/app
+  #   stdin_open: true
+  #   tty: true
+  #   restart: on-failure
+
+  spark-master:
+    image: apache/spark
+    command: bin/spark-class org.apache.spark.deploy.master.Master -h spark-master
+    hostname: spark-master
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+    environment:
+      SPARK_LOCAL_IP: spark-master
+
+  spark-worker:
+    image: apache/spark
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
+    environment:
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 2g
+      SPARK_LOCAL_IP: spark-worker
+
+  spark-app:
+    container_name: spark-app
+    hostname: spark-app
     build:
       context: ./backend
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
     depends_on:
-      - db
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - spark-master
+    ports:
+      - "4040:4040"
     volumes:
       - ./backend:/app
-    stdin_open: true
-    tty: true
-    restart: on-failure
+    environment:
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_HOME: /opt/spark
+
 
   db:
-    image: postgres:latest
+    image: postgres:16
+    container_name: financial_db
+    hostname: financial_db
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    build:
+      context: ./database/
+      dockerfile: Dockerfile
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
